@@ -1,8 +1,6 @@
 let counter = 0;
 const root = document.getElementById("root");
 
-render();
-
 const countUp = () => {
   counter += 1;
   render();
@@ -24,6 +22,8 @@ const Container = () => {
   );
 };
 
-const render = () => {
+let render = () => {
   ReactDOM.render(<Container />, root);
 };
+
+render();
