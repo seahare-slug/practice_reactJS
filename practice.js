@@ -1,4 +1,4 @@
-let counter = 0;
+// let counter = 0;
 const root = document.getElementById("root");
 
 const countUp = () => {
@@ -7,14 +7,18 @@ const countUp = () => {
 };
 
 const Container = () => {
+  const [value, handler] = React.useState("first");
+  const countUp2 = () => {
+    handler(value + "!");
+  };
   return (
     <div>
-      <h3>Total clicks: {counter}</h3>
+      <h3>Total clicks: {value}</h3>
       <button
         style={{
           backgroundColor: "tomato",
         }}
-        onClick={countUp}
+        onClick={countUp2}
       >
         Click Me!
       </button>
