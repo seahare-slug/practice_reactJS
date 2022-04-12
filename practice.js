@@ -12,24 +12,42 @@ const Container = () => {
     setValue(value + "!");
   };
   const [minutes, setMinutes] = React.useState("");
-  const detectChange = (event) => {
+  const detectMinutesChange = (event) => {
     setMinutes(event.target.value);
   };
 
+  const [hour, setHour] = React.useState("");
+  const detectHourChange = (event) => {
+    setHour(event.target.value);
+  };
+
+  const [flipped, setFlip] = React.useState(false);
+  const onFilp = () => {
+    setFlip((current) => !current);
+  };
   return (
     <div>
       <h3>Total clicks: {value}</h3>
       <button onClick={countUp2}>Click Me!</button>
       <label htmlFor="minutes">Minutes</label>
       <input
+        value={flipped ? hour * 60 : minutes}
         id="minutes"
         placeholder="Minutes"
         type="number"
-        onChange={detectChange}
+        onChange={detectMinutesChange}
+        disabled={flipped}
       ></input>
       <label htmlFor="hours">hours</label>
-      <input id="hours" placeholder="Hours" type="number"></input>
-      <h3>You input {minutes}</h3>
+      <input
+        value={flipped ? hour : minutes / 60}
+        id="hours"
+        placeholder="Hours"
+        type="number"
+        onChange={detectHourChange}
+        disabled={!flipped}
+      ></input>
+      <button onClick={onFilp}>FLIP</button>
     </div>
   );
 };
