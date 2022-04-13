@@ -1,16 +1,28 @@
-// let counter = 0;
 const root = document.getElementById("root");
 
-// const countUp = () => {
-//   counter += 1;
-//   render();
-// };
-
-const Container = () => {
+const Button = () => {
   const [value, setValue] = React.useState("first");
   const countUp2 = () => {
     setValue(value + "!");
   };
+  return (
+    <div>
+      <h3>Total clicks: {value}</h3>
+      <button onClick={countUp2}>Click Me!</button>
+    </div>
+  );
+};
+
+const Container = () => {
+  return (
+    <div>
+      <Button />
+      <MinutesToHour />
+    </div>
+  );
+};
+
+const MinutesToHour = () => {
   const [minutes, setMinutes] = React.useState("");
   const detectMinutesChange = (event) => {
     setMinutes(event.target.value);
@@ -27,8 +39,6 @@ const Container = () => {
   };
   return (
     <div>
-      <h3>Total clicks: {value}</h3>
-      <button onClick={countUp2}>Click Me!</button>
       <label htmlFor="minutes">Minutes</label>
       <input
         value={flipped ? hour * 60 : minutes}
