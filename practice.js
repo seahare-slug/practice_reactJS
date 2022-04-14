@@ -1,6 +1,19 @@
 const root = document.getElementById("root");
 
-const Button = () => {
+const Btn = ({ text, size }) => {
+  return (
+    <button
+      style={{
+        backgroundColor: "tomato",
+        fontSize: size,
+      }}
+    >
+      {text}
+    </button>
+  );
+};
+
+const ClickedButton = () => {
   const [value, setValue] = React.useState("first");
   const countUp2 = () => {
     setValue(value + "!");
@@ -16,8 +29,11 @@ const Button = () => {
 const Container = () => {
   return (
     <div>
-      <Button />
+      <ClickedButton />
       <MinutesToHour />
+      <Btn text={"Btn1"} size={14} />
+      <Btn text={"Btn2"} size={18} />
+      <Btn text={"Btn3"} size={24} />
     </div>
   );
 };
@@ -62,7 +78,7 @@ const MinutesToHour = () => {
   );
 };
 
-let render = () => {
+const render = () => {
   ReactDOM.render(<Container />, root);
 };
 
