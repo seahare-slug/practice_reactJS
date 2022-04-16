@@ -21,7 +21,7 @@ const ClickedButton = () => {
   return (
     <div>
       <h3>Total clicks: {value}</h3>
-      <h3>Total clicks: </h3>
+      <h3>Total clicks: {console.log("rere")}</h3>
       <button onClick={countUp2}>Click Me!</button>
     </div>
   );
