@@ -14,13 +14,14 @@ const Btn = ({ text, size }) => {
 };
 
 const ClickedButton = () => {
-  const [value, setValue] = React.useState("first");
+  const [value, setValue] = React.useState("mark");
   const countUp2 = () => {
     setValue(value + "!");
   };
   return (
     <div>
       <h3>Total clicks: {value}</h3>
+      <h3>Total clicks: </h3>
       <button onClick={countUp2}>Click Me!</button>
     </div>
   );
@@ -29,6 +30,7 @@ const ClickedButton = () => {
 const Container = () => {
   return (
     <div>
+      <ClickedButton />
       <ClickedButton />
       <MinutesToHour />
       <Btn text={"Btn1"} size={14} />
