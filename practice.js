@@ -1,33 +1,32 @@
-// import "./style.css";
-
 const root = document.getElementById("root");
 
 const App = () => {
   return (
-    <div>
-      <NavBar />
-      <div className="wrap-content">
-        <ContentName name={"ContentName1"} size={14} />
-        <ContentName name={"ContentName2"} size={18} />
-        <ContentName name={"ContentName3"} size={24} />
-      </div>
-      <ClickedButton />
-      <ClickedButton />
-      <MinutesToHour />
+    <div id="wrap">
+      <header>
+        <NavBar />
+      </header>
+      <aside>
+        <Content content={"content1"} />
+        <Content content={"content2"} />
+        <Content content={"content3"} />
+      </aside>
+      <section>
+        <ClickedButton />
+        <ClickedButton />
+        <MinutesToHour />
+      </section>
+      <footer></footer>
     </div>
   );
 };
 
 const NavBar = () => {
-  return (
-    <div className="nav-bar">
-      <div>NAV-BAR</div>
-    </div>
-  );
+  return <div>NAV-BAR</div>;
 };
 
-const ContentName = ({ name }) => {
-  return <button>{name}</button>;
+const Content = ({ content }) => {
+  return <div className="content">{content}</div>;
 };
 
 const ClickedButton = () => {
