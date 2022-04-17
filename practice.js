@@ -1,43 +1,48 @@
+// import "./style.css";
+
 const root = document.getElementById("root");
 
-const Btn = ({ text, size }) => {
+const App = () => {
   return (
-    <button
-      style={{
-        backgroundColor: "tomato",
-        fontSize: size,
-      }}
-    >
-      {text}
-    </button>
+    <div>
+      <NavBar />
+      <div className="wrap-content">
+        <ContentName name={"ContentName1"} size={14} />
+        <ContentName name={"ContentName2"} size={18} />
+        <ContentName name={"ContentName3"} size={24} />
+      </div>
+      <ClickedButton />
+      <ClickedButton />
+      <MinutesToHour />
+    </div>
   );
+};
+
+const NavBar = () => {
+  return (
+    <div className="nav-bar">
+      <div>NAV-BAR</div>
+    </div>
+  );
+};
+
+const ContentName = ({ name }) => {
+  return <button>{name}</button>;
 };
 
 const ClickedButton = () => {
   const [value, setValue] = React.useState([0, 1, 2]);
-  const countUp2 = () => {
+  const countUp = () => {
     let arr1 = [...value];
+    arr1.push("!");
     setValue(arr1);
   };
   return (
-    <div>
+    <>
       <h3>Total clicks: {value}</h3>
-      <h3>Total clicks: {console.log("rere")}</h3>
-      <button onClick={countUp2}>Click Me!</button>
-    </div>
-  );
-};
-
-const Container = () => {
-  return (
-    <div>
-      <ClickedButton />
-      <ClickedButton />
-      <MinutesToHour />
-      <Btn text={"Btn1"} size={14} />
-      <Btn text={"Btn2"} size={18} />
-      <Btn text={"Btn3"} size={24} />
-    </div>
+      <h3>{console.log("rere")}</h3>
+      <button onClick={countUp}>Click Me!</button>
+    </>
   );
 };
 
@@ -82,7 +87,7 @@ const MinutesToHour = () => {
 };
 
 const render = () => {
-  ReactDOM.render(<Container />, root);
+  ReactDOM.render(<App />, root);
 };
 
 render();
