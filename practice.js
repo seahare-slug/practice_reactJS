@@ -14,9 +14,10 @@ const Btn = ({ text, size }) => {
 };
 
 const ClickedButton = () => {
-  const [value, setValue] = React.useState("mark");
+  const [value, setValue] = React.useState([0, 1, 2]);
   const countUp2 = () => {
-    setValue(value + "!");
+    let arr1 = [...value];
+    setValue(arr1);
   };
   return (
     <div>
