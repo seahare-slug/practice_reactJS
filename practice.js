@@ -16,7 +16,7 @@ const App = () => {
         <ClickedButton />
         <MinutesToHour />
       </section>
-      <footer></footer>
+      <footer>footer</footer>
     </div>
   );
 };
